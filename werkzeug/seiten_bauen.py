@@ -39,7 +39,7 @@ def kopf(aktiv):
 
     <div class="kopf__navs" id="navigation">
       <nav class="metanav" aria-label="Service">
-        <a class="metanav__insta" href="#instagram" aria-label="InselTicket auf Instagram">
+        <a class="metanav__insta" href="https://www.instagram.com/inselticket.de/" target="_blank" rel="noopener" aria-label="InselTicket auf Instagram">
           <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.6" cy="6.4" r="1.3" fill="currentColor"/></svg>
         </a>
         <a href="agb.html"{cur('agb')}>AGB</a>
