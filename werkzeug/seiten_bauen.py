@@ -258,21 +258,53 @@ def inseluebersicht():
 
 
 def so_funktionierts():
-    # Wortlaut der Live-Seite; Zeilenumbrüche des alten Layouts entfallen, Absätze bleiben
+    # Sätze im Wortlaut der Live-Seite, als einzelne Kästen angeordnet.
+    # Die kurzen Stichworte über den Kästen sind eine gestalterische Ergänzung von STUDIO ZUNDER.
+    def ico(pfad):
+        return f'<svg class="info__symbol" viewBox="0 0 32 32" aria-hidden="true">{pfad}</svg>'
+    S = 'fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"'
+    symbole = {
+        'heft': ico(f'<rect x="5" y="8" width="22" height="16" rx="2" {S}/><path d="M12 8v16" {S} stroke-dasharray="2 2.5"/><path d="M16 14h7M16 18h5" {S}/>'),
+        'exklusiv': ico(f'<path d="M16 4l3.6 7.4 8.1 1.2-5.9 5.7 1.4 8.1L16 22.6l-7.2 3.8 1.4-8.1-5.9-5.7 8.1-1.2z" {S}/>'),
+        'sparen': ico(f'<circle cx="16" cy="16" r="11" {S}/><path d="M20.5 11.5a5.5 5.5 0 1 0 0 9M9.5 14.5h8M9.5 17.5h8" {S}/>'),
+        'vorlegen': ico(f'<rect x="9" y="4" width="14" height="24" rx="2.5" {S}/><path d="M13 9h6M13 13h6M13 17h4" {S}/>'),
+        'zwei': '<span class="info__zahl" aria-hidden="true">2:1</span>',
+        'rabatt': ico(f'<path d="M8 24L24 8" {S}/><circle cx="10" cy="10" r="3" {S}/><circle cx="22" cy="22" r="3" {S}/>'),
+        'alle': ico(f'<path d="M6 9l3 3 5-6M6 18l3 3 5-6M18 9h8M18 18h8M18 26h8" {S}/>'),
+    }
+    kaesten = [
+        ('heft', 'Das Heft',
+         '<p>Das InselTicket ist ein kleines Gutscheinheft, in dem exklusive Gutscheine für Sie enthalten sind.</p>', ''),
+        ('exklusiv', 'Exklusiv',
+         '<p><strong>Diese Gutscheine erhalten Sie nur mit dem InselTicket!</strong></p>'
+         '<p>Alle Angebote finden Sie unter der Rubrik <a href="inseln.html">"Die Insel &amp; Ihre Anbieter"</a>.</p>', ''),
+        ('sparen', 'Sparen &amp; entdecken',
+         '<p>Mit Ihrem Ticket können Sie mit Rabatt- und "2 für 1"-Gutscheinen auf der Insel Ihrer Wahl immer viel Geld sparen und Neues entdecken.</p>', ''),
+        ('vorlegen', 'Einfach vorlegen',
+         '<p>Bei der Nutzung legen Sie dann einfach das Ticket vor.</p>', ''),
+        ('zwei', '2 für 1',
+         '<p>Bei einem "2 für 1" - Angebot wird die jeweils günstigere oder preisgleiche Position nicht berechnet und ist somit für Sie kostenlos.</p>'
+         '<p><strong>Sie zahlen also nur für eine Person - für die zweite Person ist es immer gratis!</strong></p>', ' info--betont'),
+        ('rabatt', 'Rabatte',
+         '<p>Und die Rabattgutscheine lösen Sie einfach beim jeweiligen Teilnehmer ein.</p>', ''),
+        ('alle', 'Alle Angebote nutzen',
+         '<p>P.S. Natürlich können Sie nicht nur ein, sondern alle Angebote Ihres InselTickets nutzen!</p>', ''),
+    ]
+    liste = '\n'.join(f'''      <li class="info{extra}">
+        <div class="info__kopf">{symbole[k]}<span class="info__stichwort">{stich}</span></div>
+        {text}
+      </li>''' for k, stich, text, extra in kaesten)
     inhalt = f'''{seitenkopf("So funktioniert's", "kopf-duenen.jpg", "center 60%")}
 
-  <article class="textseite textseite--mittig">
-    <h2 class="textseite__aufmacher">Maximale Freizeitgestaltung bei minimalen Kosten!</h2>
-    <p>Das InselTicket ist ein kleines Gutscheinheft, in dem exklusive Gutscheine für Sie enthalten sind.</p>
-    <p><strong>Diese Gutscheine erhalten Sie nur mit dem InselTicket!</strong> Alle Angebote finden Sie unter der Rubrik <a href="inseln.html">"Die Insel &amp; Ihre Anbieter"</a>.</p>
-    <p>Mit Ihrem Ticket können Sie mit Rabatt- und "2 für 1"-Gutscheinen auf der Insel Ihrer Wahl immer viel Geld sparen und Neues entdecken.</p>
-    <p>Bei der Nutzung legen Sie dann einfach das Ticket vor.</p>
-    <p>Bei einem "2 für 1" - Angebot wird die jeweils günstigere oder preisgleiche Position nicht berechnet und ist somit für Sie kostenlos.</p>
-    <p>Sie zahlen also nur für eine Person - für die zweite Person ist es immer gratis!</p>
-    <p>Und die Rabattgutscheine lösen Sie einfach beim jeweiligen Teilnehmer ein.</p>
-    <p>P.S. Natürlich können Sie nicht nur ein, sondern alle Angebote Ihres InselTickets nutzen!</p>
-    <p class="textseite__abschluss">Das InselTicket ist streng limitiert.<br>Also gleich bestellen!</p>
-    <p><a class="knopf" href="inseln.html">Zu den InselTickets</a></p>
+  <article class="funktion">
+    <h2 class="funktion__aufmacher">Maximale Freizeitgestaltung bei minimalen Kosten!</h2>
+    <ul class="info-liste">
+{liste}
+    </ul>
+    <div class="funktion__abschluss">
+      <p>Das InselTicket ist streng limitiert.<br>Also gleich bestellen!</p>
+      <a class="knopf" href="inseln.html">Zu den InselTickets</a>
+    </div>
   </article>'''
     seite('so-funktionierts.html', "So funktioniert's · InselTicket", 'function', inhalt)
 
