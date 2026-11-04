@@ -289,7 +289,7 @@ def inselseite(k, n):
 
 
 def inseluebersicht():
-    inhalt = f'''{seitenkopf("Die Inseln &amp; ihre Anbieter", "kopf-duenen.jpg", "center 60%")}
+    inhalt = f'''{seitenkopf("Die Inseln &amp; ihre Anbieter", "kopf-steg.jpg", "center 55%")}
 
 {ticketliste().replace('class="inseln"', 'class="inseln inseln--seite"')}'''
     seite('inseln.html', 'Die Inseln & ihre Anbieter · InselTicket', 'inseln', inhalt)
@@ -332,7 +332,7 @@ def so_funktionierts():
         <div class="info__kopf">{symbole[k]}<span class="info__stichwort">{stich}</span></div>
         {text}
       </li>''' for k, stich, text, extra in kaesten)
-    inhalt = f'''{seitenkopf("So funktioniert's", "kopf-duenen.jpg", "center 60%")}
+    inhalt = f'''{seitenkopf("So funktioniert's", "kopf-kueste.jpg", "center 55%")}
 
   <article class="funktion">
     <h2 class="funktion__aufmacher">Maximale Freizeitgestaltung bei minimalen Kosten!</h2>
