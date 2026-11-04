@@ -1,0 +1,470 @@
+/* InselTicket · Stil nach Weblayout 11/2023 */
+
+@font-face {
+  font-family: "Roboto Condensed";
+  src: url("../fonts/roboto-condensed-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto Condensed";
+  src: url("../fonts/roboto-condensed-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --blau: #102d56;
+  --orange: #ee7f00;
+  --sand: #dbd6bc;
+  --weiss: #ffffff;
+  --kopf-oben: #33578d;
+  --kopf-mitte: #0f213c;
+  --kopf-unten: #07152a;
+  --breite: 860px;
+  --schatten-text: 0 2px 6px rgba(7, 21, 42, .45);
+  --schatten-box: 3px 4px 8px rgba(7, 21, 42, .35);
+  --flaeche: #e9e5d0;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--sand);
+  color: var(--blau);
+  font-family: "Roboto Condensed", "Arial Narrow", Arial, sans-serif;
+  font-weight: 700;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+
+.sr {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+/* ---------- Kopfleiste ---------- */
+
+.kopf {
+  position: relative;
+  z-index: 10;
+  background: linear-gradient(to bottom, var(--kopf-oben) 0%, #1d365b 20%, var(--kopf-mitte) 42%, var(--kopf-unten) 80%);
+  box-shadow: 0 2px 8px rgba(7, 21, 42, .35);
+}
+
+.kopf__innen {
+  max-width: var(--breite);
+  margin: 0 auto;
+  padding: 0 16px;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.kopf__logo img { width: 250px; }
+
+.kopf__navs {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 14px;
+}
+
+.metanav, .hauptnav { display: flex; align-items: center; }
+
+.metanav { gap: 22px; font-size: 15px; color: var(--weiss); }
+.metanav a:hover { color: var(--orange); }
+.metanav__insta { display: inline-flex; animation: insta-changieren 4s ease-in-out infinite; }
+@keyframes insta-changieren {
+  0%, 100% { color: var(--weiss); }
+  50%      { color: var(--orange); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .metanav__insta { animation: none; }
+}
+.metanav__insta svg { width: 22px; height: 22px; }
+
+.hauptnav { gap: 48px; font-size: 17px; color: var(--orange); }
+.hauptnav a:hover { color: var(--weiss); }
+.hauptnav a[aria-current="page"], .metanav a[aria-current="page"] { color: var(--weiss); }
+.hauptnav__korb { display: inline-flex; align-items: center; gap: 6px; }
+
+/* Untermenü der Inseln */
+.hauptnav__gruppe { position: relative; }
+.hauptnav__unter {
+  position: absolute;
+  top: 100%;
+  left: -18px;
+  z-index: 20;
+  min-width: 230px;
+  margin: 0;
+  padding: 14px 0 10px;
+  list-style: none;
+  background: var(--kopf-unten);
+  box-shadow: var(--schatten-box);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition: opacity .2s ease, transform .2s ease, visibility .2s;
+}
+.hauptnav__unter a { display: block; padding: 6px 18px; font-size: 16px; color: var(--weiss); }
+.hauptnav__unter a:hover, .hauptnav__unter a[aria-current="page"] { color: var(--orange); }
+.hauptnav__gruppe:hover .hauptnav__unter,
+.hauptnav__gruppe:focus-within .hauptnav__unter { opacity: 1; visibility: visible; transform: translateY(0); }
+.hauptnav__korb svg { width: 22px; height: 22px; }
+
+.kopf__menueknopf { display: none; }
+
+/* ---------- Held ---------- */
+
+.held {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+/* Bild über die volle Breite, unten verankert: Verlauf erst unter den Füßen, direkt in den Sandton */
+.held__bild {
+  position: absolute;
+  inset: 0;
+  background: var(--sand) url("../img/hero-strand-familie-sand.jpg") center bottom / cover no-repeat;
+}
+
+.held { height: min(64vw, 900px); }
+
+.held__titel {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding-top: clamp(20px, 2.6vw, 40px);
+  color: var(--weiss);
+  font-size: clamp(38px, 6vw, 80px);
+  line-height: 1.1;
+  text-align: center;
+  text-shadow: var(--schatten-text);
+}
+
+/* ---------- Inselkästen: Ticket links, Text rechts ---------- */
+
+.inseln {
+  position: relative;
+  max-width: var(--breite);
+  margin: clamp(-60px, -4vw, -20px) auto 0;
+  padding: 0 16px;
+}
+
+.inseln__liste {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 18px;
+}
+
+.ticketkasten {
+  position: relative;
+  display: grid;
+  grid-template-columns: 54% 1fr;
+  align-items: center;
+  gap: 28px;
+  padding: 20px 28px 20px 12px;
+  background: linear-gradient(to bottom, var(--blau) 0%, var(--kopf-unten) 100%);
+  color: var(--weiss);
+  box-shadow: var(--schatten-box);
+}
+
+.ticketkasten::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 22px;
+  height: 22px;
+  background: var(--orange) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 11.5l7-7M6 4.5h5.5V10' fill='none' stroke='%23102d56' stroke-width='1.8'/%3E%3C/svg%3E") center / 16px no-repeat;
+}
+
+.ticketkasten__bild { width: 100%; height: auto; }
+
+.ticketkasten__text { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
+
+.ticketkasten__titel {
+  margin: 0;
+  font-size: clamp(28px, 3.4vw, 36px);
+  line-height: 1.15;
+}
+
+.ticketkasten__fakten,
+.ticketkasten__preis {
+  margin: 0;
+  font-size: clamp(16px, 1.7vw, 18px);
+  line-height: 1.35;
+}
+
+.ticketkasten__preis { margin-top: 8px; }
+
+/* ---------- Knopf ---------- */
+
+.knopf {
+  display: inline-block;
+  margin-top: 4px;
+  padding: 9px 22px;
+  background: var(--orange);
+  color: var(--weiss);
+  font-size: 18px;
+  line-height: 1.3;
+  border-radius: 2px;
+  box-shadow: 2px 3px 6px rgba(7, 21, 42, .35);
+  transition: background .2s ease, color .2s ease, transform .2s ease;
+}
+.knopf:hover { background: var(--weiss); color: var(--orange); transform: translateY(-2px); }
+.knopf:focus-visible { outline: 3px solid var(--weiss); outline-offset: 2px; }
+
+/* ---------- Botschaft ---------- */
+
+.botschaft {
+  max-width: var(--breite);
+  margin: 0 auto;
+  padding: 44px 16px 10px;
+  font-size: clamp(18px, 2vw, 21px);
+  text-align: center;
+}
+
+.botschaft p { margin: 0 0 1.6em; }
+
+/* ---------- App ---------- */
+
+.app {
+  max-width: var(--breite);
+  margin: 0 auto;
+  padding: 40px 16px 60px;
+  text-align: center;
+  font-size: clamp(18px, 2vw, 21px);
+}
+
+.app__titel {
+  margin: 20px 0 14px;
+  color: var(--weiss);
+  font-size: clamp(26px, 3vw, 30px);
+  line-height: 1.25;
+  text-shadow: var(--schatten-text);
+}
+
+.app__text p { margin: 0 0 18px; }
+
+.app__badges { display: flex; justify-content: center; gap: 28px; margin-bottom: 18px; }
+.app__badges img { height: 56px; width: auto; }
+.app__text a:hover { color: var(--orange); }
+
+/* ---------- Seitenkopf der Unterseiten ---------- */
+
+.seitenkopf {
+  position: relative;
+  height: clamp(252px, 30.24vw, 428px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.seitenkopf__bild {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
+          mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
+}
+
+.seitenkopf__bild::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 55% at 50% 50%, rgba(7, 21, 42, .45) 0%, rgba(7, 21, 42, .15) 60%, transparent 100%);
+}
+
+.seitenkopf__titel {
+  position: relative;
+  margin: 0;
+  padding: 0 16px 20px;
+  color: var(--weiss);
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 1.1;
+  text-align: center;
+  text-shadow: 0 2px 10px rgba(7, 21, 42, .6);
+}
+
+.inseln--seite { margin-top: clamp(-50px, -3vw, -20px); padding-bottom: 60px; }
+
+/* ---------- Inselseite ---------- */
+
+.inselkopf {
+  position: relative;
+  max-width: var(--breite);
+  margin: clamp(-60px, -4vw, -20px) auto 0;
+  padding: 0 16px;
+}
+
+.gutscheine {
+  max-width: var(--breite);
+  margin: 0 auto;
+  padding: 44px 16px 20px;
+}
+
+.gutscheine__titel {
+  margin: 0 0 20px;
+  font-size: clamp(24px, 2.6vw, 30px);
+  line-height: 1.2;
+}
+
+.gutscheine__liste {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.gutschein {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 18px 14px;
+  background: var(--flaeche);
+  border-left: 4px solid var(--orange);
+  box-shadow: 2px 3px 6px rgba(7, 21, 42, .15);
+}
+
+.gutschein__name { margin: 0; font-size: 21px; line-height: 1.25; }
+.gutschein__name a:hover { color: var(--orange); }
+.gutschein__zusatz { font-weight: 400; font-size: 16px; }
+
+.gutschein__angebot {
+  flex: 1;
+  margin: 10px 0 12px;
+  font-size: 18px;
+  line-height: 1.35;
+}
+.gutschein__zeit { display: block; font-weight: 400; font-size: 16px; }
+
+.gutschein__ersparnis {
+  margin: 0;
+  padding-top: 10px;
+  border-top: 1px solid rgba(16, 45, 86, .18);
+  color: var(--orange);
+  font-size: 17px;
+}
+
+.gutscheine__summe {
+  margin: 28px 0 10px;
+  font-size: clamp(20px, 2.2vw, 24px);
+  text-align: center;
+}
+.gutscheine__summe-knopf { margin: 0; text-align: center; }
+
+.inselwahl {
+  max-width: var(--breite);
+  margin: 0 auto;
+  padding: 30px 16px 60px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px 22px;
+  font-size: 18px;
+}
+.inselwahl__titel { width: 100%; text-align: center; }
+.inselwahl a { color: var(--orange); }
+.inselwahl a:hover, .inselwahl a[aria-current="page"] { color: var(--blau); }
+
+/* ---------- Textseiten ---------- */
+
+.textseite {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 10px 16px 70px;
+  font-size: 19px;
+  line-height: 1.6;
+}
+
+.textseite--mittig { text-align: center; }
+.textseite p { margin: 0 0 1.1em; }
+.textseite a:not(.knopf) { color: var(--orange); }
+.textseite a:not(.knopf):hover { text-decoration: underline; }
+
+.textseite__aufmacher {
+  margin: 0 0 24px;
+  font-size: clamp(26px, 3vw, 34px);
+  line-height: 1.2;
+}
+
+.textseite__abschluss { font-size: clamp(22px, 2.4vw, 26px); line-height: 1.3; }
+
+.textseite--recht { font-weight: 400; font-size: 17px; }
+.textseite--recht strong, .textseite--recht h2 { font-weight: 700; }
+.textseite--recht h2 { margin: 1.6em 0 .5em; font-size: 24px; line-height: 1.25; }
+.textseite--recht h3 { margin: 1.3em 0 .3em; font-size: 19px; line-height: 1.3; }
+
+/* ---------- Tablet ---------- */
+
+@media (max-width: 900px) {
+  .hauptnav { gap: 28px; }
+  .ticketkasten { gap: 20px; padding-right: 20px; }
+}
+
+/* ---------- Smartphone ---------- */
+
+@media (max-width: 720px) {
+  .kopf__innen { min-height: 84px; flex-wrap: wrap; gap: 0; }
+  .kopf__logo img { width: 190px; }
+
+  .kopf__menueknopf {
+    display: flex; flex-direction: column; justify-content: center; gap: 5px;
+    width: 44px; height: 44px; padding: 10px;
+    background: transparent; border: 0; cursor: pointer;
+  }
+  .kopf__menueknopf span:not(.sr) { display: block; height: 3px; background: var(--orange); border-radius: 2px; }
+
+  .kopf__navs {
+    display: none;
+    width: 100%;
+    align-items: stretch;
+    gap: 0;
+    padding: 6px 0 18px;
+  }
+  .kopf__navs.offen { display: flex; }
+  .hauptnav { order: 1; flex-direction: column; align-items: stretch; gap: 0; font-size: 20px; }
+  .hauptnav a { display: block; padding: 10px 0; border-bottom: 1px solid rgba(255, 255, 255, .12); }
+  .hauptnav__unter {
+    position: static; min-width: 0; padding: 0 0 6px 16px;
+    background: none; box-shadow: none; opacity: 1; visibility: visible; transform: none;
+  }
+  .hauptnav__unter a { padding: 8px 0; font-size: 17px; }
+  .metanav { order: 2; flex-wrap: wrap; gap: 16px; padding-top: 16px; }
+
+  .held { height: 125vw; }
+  .held__bild { background-position: 47% bottom; }
+
+  .inseln { margin-top: -16px; }
+  .ticketkasten { grid-template-columns: 1fr; gap: 14px; padding: 14px 14px 20px; }
+  .ticketkasten__text { padding: 0 6px; }
+
+  .gutscheine__liste { grid-template-columns: 1fr; }
+  .textseite { font-size: 18px; }
+  .textseite--recht { font-size: 16px; }
+
+  .botschaft br { display: none; }
+
+  .app { padding: 30px 16px 50px; }
+  .app__badges { flex-wrap: wrap; gap: 14px; }
+  .app__badges img { height: 48px; }
+}

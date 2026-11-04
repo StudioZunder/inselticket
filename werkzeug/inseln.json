@@ -1,0 +1,880 @@
+{
+ "inseln": {
+  "borkum": {
+   "kopf": [
+    [
+     "big",
+     "InselTicket\nBorkum 2027"
+    ],
+    [
+     "medium",
+     "Laufzeit: 15. März – 31. Oktober 2027\nGesamtersparnis: Weit über 300,00 €"
+    ],
+    [
+     "big",
+     "Einmal kaufen, überall sparen! Einmaliger Kaufpreis: 24,50 €"
+    ]
+   ],
+   "ueberblick": "Alle Borkum-Gutscheine im Überblick:",
+   "kaufen": "1",
+   "gutscheine": [
+    {
+     "name": "Inselhotel Vier Jahreszeiten",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Langschläfer-Frühstücksbuffet",
+     "zeit": "(10.00 - 11.30 Uhr)",
+     "ersparnis": "Ersparnis: Exakt 21,50 Euro"
+    },
+    {
+     "name": "Dock & Dine",
+     "zusatz": "Hafen-Restaurant",
+     "link": "",
+     "angebot": "2 für 1 - Antipasti-Teller & 1 Glas Wein",
+     "zeit": "(12.00 - 17.00 Uhr)",
+     "ersparnis": "Ersparnis: Ca. 19,00 Euro"
+    },
+    {
+     "name": "Stadtschänke Brasserie",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Pizza Ihrer Wahl",
+     "zeit": "(12.00 - 18.00 Uhr)",
+     "ersparnis": "Ersparnis: Bis zu 14,00 Euro"
+    },
+    {
+     "name": "Borkumer Stube",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Heißgetränk & Kuchen",
+     "zeit": "(12.30 - 16.00 Uhr)",
+     "ersparnis": "Ersparnis: ca. 9,00 Euro"
+    },
+    {
+     "name": "Spritzhütte",
+     "zusatz": "Vier Jahreszeiten",
+     "link": "",
+     "angebot": "2 für 1 - Spritz to go",
+     "zeit": "(13.00 - 17.00 Uhr)",
+     "ersparnis": "Ersparniss: Exakt 6,00 Euro"
+    },
+    {
+     "name": "Restaurant zum Yachthafen",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Heißgetränk & Kuchen",
+     "zeit": "(ab 10.00 Uhr)",
+     "ersparnis": "Ersparnis: ca. 7,00 Euro"
+    },
+    {
+     "name": "Nebenan vom In Unis",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Spritzgedeck",
+     "zeit": "(16.00 - 19.00 Uhr)",
+     "ersparnis": "Ersparnis: ca. 12,00 Euro"
+    },
+    {
+     "name": "Alibi Café Restaurant",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Großer American Burger",
+     "zeit": "(17.00 - 18.30 Uhr)",
+     "ersparnis": "Ersparnis: Bis zu 18,00 Euro"
+    },
+    {
+     "name": "Restaurant Watermann",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - 3 Gänge-Late Night Dinner",
+     "zeit": "(19.30-20.30 Uhr)",
+     "ersparnis": "Ersparnis: Exakt 39,50 Euro"
+    },
+    {
+     "name": "Tourist- Information Borkum",
+     "zusatz": "",
+     "link": "",
+     "angebot": "20% Rabatt auf Ihren Einkauf",
+     "zeit": "(bei 50,- Euro-Einkauf)",
+     "ersparnis": "Ersparnis: Exakt 10,00 Euro"
+    },
+    {
+     "name": "Sun & Bag Bekleidung",
+     "zusatz": "",
+     "link": "",
+     "angebot": "20% Rabatt auf Ihren Einkauf",
+     "zeit": "(bei 100,- Euro-Einkauf)",
+     "ersparnis": "Ersparnis: Exakt 20,00 Euro"
+    },
+    {
+     "name": "SC-Fashion-House",
+     "zusatz": "",
+     "link": "",
+     "angebot": "20% Rabatt auf Ihren Einkauf",
+     "zeit": "(bei 100,- Euro-Einkauf)",
+     "ersparnis": "Ersparnis: Exakt 20,00 Euro"
+    },
+    {
+     "name": "Aktiv-Markt Brantjes",
+     "zusatz": "",
+     "link": "",
+     "angebot": "10% Rabatt Lebensmittel u. Getränke",
+     "zeit": "(bei 100,- Euro-Einkauf)",
+     "ersparnis": "Ersparnis: Exakt 10,00 Euro"
+    },
+    {
+     "name": "Neue Apotheke Borkum",
+     "zusatz": "",
+     "link": "",
+     "angebot": "20% Rabatt auf Ihren Einkauf",
+     "zeit": "(bei 50,- Euro-Einkauf)",
+     "ersparnis": "Ersparnis: Exakt 10,00 Euro"
+    },
+    {
+     "name": "43 Kleider & sieben Sachen",
+     "zusatz": "",
+     "link": "",
+     "angebot": "20% Rabatt auf Ihren Einkauf",
+     "zeit": "(bei 50,- Euro-Einkauf)",
+     "ersparnis": "Ersparnis: Exakt 10,00 Euro"
+    },
+    {
+     "name": "Borkumer Bontje Huus",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - 100 Gramm Tee Ihrer Wahl",
+     "zeit": "(ab 9.00 Uhr)",
+     "ersparnis": "Ersparnis: Bis zu 5,00 Euro"
+    },
+    {
+     "name": "Fahrradverleihh Schumacher",
+     "zusatz": "",
+     "link": "",
+     "angebot": "Fahrradmiete, 3 Tage mieten, nur 2 bezahlen",
+     "zeit": "(ab 9.00 Uhr)",
+     "ersparnis": "Ersparniss: Exakt 8,00 Euro"
+    },
+    {
+     "name": "Gezeitenland / Schwimmbad",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Tageseintritt Erlebnisdeck",
+     "zeit": "(täglich gültig)",
+     "ersparnis": "Ersparnis: Exakt 12,00 Euro"
+    },
+    {
+     "name": "Gezeitenland / Wellness",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Alpha-Liege",
+     "zeit": "(nach tel. Voranmeldung)",
+     "ersparnis": "Ersparnis: Exakt 12,00 Euro"
+    },
+    {
+     "name": "Gezeitenland / Fitness",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Tageskarte Fitness-studio",
+     "zeit": "(nach Voranmeldung)",
+     "ersparnis": "Ersparnis: Exakt 10,00 Euro"
+    },
+    {
+     "name": "Gezeitenland / Wellness",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Friesische Rasul-Zeremonie",
+     "zeit": "(nach Voranmeldung)",
+     "ersparnis": "Ersparnis: Exakt 35,00 Euro"
+    }
+   ]
+  },
+  "norderney": {
+   "kopf": [
+    [
+     "big",
+     "InselTicket\nNorderney 2027"
+    ],
+    [
+     "medium",
+     "Laufzeit: 15. März – 31. Oktober 2027\nGesamtersparnis: Weit über 300,00 €"
+    ],
+    [
+     "big",
+     "Einmal kaufen, überall sparen! Einmaliger Kaufpreis: 24,50 €"
+    ]
+   ],
+   "ueberblick": "Alle Norderney-Gutscheine im Überblick:",
+   "kaufen": "2",
+   "gutscheine": [
+    {
+     "name": "Hotel Jann von Norderney",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Langschläfer-Frühstücksbuffet",
+     "zeit": "(10.00 - 11.30 Uhr)",
+     "ersparnis": "Ersparnis: Exakt 24,50 Euro"
+    },
+    {
+     "name": "Jann´s Bistro Frühstück",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Early Bird-Frühstück",
+     "zeit": "(8.00 - 10.00 Uhr)",
+     "ersparnis": "Ersparnis: Bis zu 9,90 Euro"
+    },
+    {
+     "name": "Fritsching´s im Reethuus",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Fischbrötchen Ihrer Wahl",
+     "zeit": "(11.00 - 17.00 Uhr)",
+     "ersparnis": "Ersparnis: Circa 8,00 Euro"
+    },
+    {
+     "name": "Bootshaus Norderney",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Bootshaus-Platte",
+     "zeit": "(14.00 - 16.00 Uhr)",
+     "ersparnis": "Ersparnis: Exakt 19,00 Euro"
+    },
+    {
+     "name": "De Vries & Tretina Norderney",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Mittag / Abendessen",
+     "zeit": "(12.00-14.00 / 17.30-20.30 Uhr)",
+     "ersparnis": "Ersparnis: Bis zu 27,50 Euro"
+    },
+    {
+     "name": "Jann´s Bistro Mittag",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Mittags-Snack Ihrer Wahl",
+     "zeit": "(12.00 - 15.00 Uhr)",
+     "ersparnis": "Ersparnis: Circa 10,00 Euro"
+    },
+    {
+     "name": "Badehalle by Robert",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Fisch-Rolls Ihrer Wahl",
+     "zeit": "(14.00 - 17.00 Uhr)",
+     "ersparnis": "Ersparnis: Bis zu 10,00 Euro"
+    },
+    {
+     "name": "Elefant by Deckena",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Currywurst & Pommes",
+     "zeit": "(12.00 - 17.00 Uhr)",
+     "ersparnis": "Ersparnis: Exakt 10,90 Euro"
+    },
+    {
+     "name": "Fritsching´s im Reethuus",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Heißgetränk & Kuchen / Torte",
+     "zeit": "(11.00 - 17.00 Uhr)",
+     "ersparnis": "Ersparnis: Circa 10,00 Euro"
+    },
+    {
+     "name": "Bootshaus Norderney",
+     "zusatz": "Beach",
+     "link": "",
+     "angebot": "2 für 1 - Snack & Getränk",
+     "zeit": "(14.00 - 16.00 Uhr)",
+     "ersparnis": "Ersparnis: Circa 10,00 Euro"
+    },
+    {
+     "name": "Gabriels Tapas, Wein & Meer",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Tapas Ihrer Wahl",
+     "zeit": "(17.00 - 18.00 Uhr)",
+     "ersparnis": "Ersparnis: Bis zu 12,50 Euro"
+    },
+    {
+     "name": "Restaurant Friesenschänke",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Hauptgericht a la Carté",
+     "zeit": "(19.30 - 21.00 Uhr)",
+     "ersparnis": "Ersparnis: Bis zu 26,80 Euro"
+    },
+    {
+     "name": "Atelier Waterkant Norderney",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Art-Print-Poster oder Foto-Board",
+     "zeit": "",
+     "ersparnis": "Ersparnis: Bis zu 25,00 Euro"
+    },
+    {
+     "name": "Watt Welten",
+     "zusatz": "Souvenir-Shop",
+     "link": "",
+     "angebot": "20% Rabatt auf Ihren Einkauf",
+     "zeit": "(z.B. bei 50,- Euro Einkauf)",
+     "ersparnis": "Ersparnis: Exakt 10,00 Euro"
+    },
+    {
+     "name": "Meerraum",
+     "zusatz": "Accessoires",
+     "link": "",
+     "angebot": "20% Rabatt auf Ihren Einkauf",
+     "zeit": "(z.B. bei 100,- Euro Einkauf)",
+     "ersparnis": "Ersparnis: Exakt 20,00 Euro"
+    },
+    {
+     "name": "Rad Toni / Fahrradzubehör",
+     "zusatz": "",
+     "link": "",
+     "angebot": "10% Rabatt auf Ihren Einkauf",
+     "zeit": "(z.B. bei 100,- Euro Einkauf)",
+     "ersparnis": "Ersparnis: Exakt 10,00 Euro"
+    },
+    {
+     "name": "Sonnendeck Norderney",
+     "zusatz": "",
+     "link": "",
+     "angebot": "15,- Euro-Gutschein auf eine Besonnung",
+     "zeit": "(9.00 - 19.00 Uhr)",
+     "ersparnis": "Ersparnis: Exakt 15,00 Euro"
+    },
+    {
+     "name": "Rad Toni / Rad Toni Café",
+     "zusatz": "",
+     "link": "",
+     "angebot": "10% Rabatt auf die Fahrradmiete",
+     "zeit": "(z.B. bei 100,- Euro Miete)",
+     "ersparnis": "Ersparnis: Exakt 10,00 Euro"
+    },
+    {
+     "name": "Watt Welten",
+     "zusatz": "Besucherzentrum",
+     "link": "",
+     "angebot": "2 für 1 - Eintrittskarte Watt Welten",
+     "zeit": "(10.00 - 17.00 Uhr)",
+     "ersparnis": "Ersparnis: Bis zu 12,00 Euro"
+    },
+    {
+     "name": "Cocktail-Taxi Norderney",
+     "zusatz": "",
+     "link": "",
+     "angebot": "20% Rabatt auf Ihre Bestellung",
+     "zeit": "(z.B. bei 50,- Euro Buchung)",
+     "ersparnis": "Ersparnis: Exakt 10,00 Euro"
+    },
+    {
+     "name": "Lasertag Event Outdoor",
+     "zusatz": "",
+     "link": "",
+     "angebot": "20% Rabatt auf Ihre Bestellung",
+     "zeit": "(z.B. bei 50,- Euro Buchung)",
+     "ersparnis": "Ersparnis: Exakt 10,00 Euro"
+    },
+    {
+     "name": "Segway-Tour Norderney",
+     "zusatz": "",
+     "link": "",
+     "angebot": "20% Rabatt auf Ihre Bestellung",
+     "zeit": "(z.B. bei 100,- Euro Buchung)",
+     "ersparnis": "Ersparnis: Exakt 20,00 Euro"
+    },
+    {
+     "name": "Outdoor Escape-Game",
+     "zusatz": "",
+     "link": "",
+     "angebot": "20% Rabatt auf Ihre Bestellung",
+     "zeit": "(z.B. bei 50,- Euro Buchung)",
+     "ersparnis": "Ersparnis: Exakt 10,00 Euro"
+    },
+    {
+     "name": "Sundowner Segway-Tour",
+     "zusatz": "",
+     "link": "",
+     "angebot": "90 Minuten Segway-Tour + Cocktail für 39,- Euro",
+     "zeit": "",
+     "ersparnis": "Ersparnis: Exakt 20,00 Euro"
+    }
+   ]
+  },
+  "juist": {
+   "kopf": [
+    [
+     "big",
+     "InselTicket\nJuist 2027"
+    ],
+    [
+     "medium",
+     "Laufzeit: 15. März – 31. Oktober 2027\nGesamtersparnis: Weit über 300,00 €"
+    ],
+    [
+     "big",
+     "Einmal kaufen, überall sparen! Einmaliger Kaufpreis: 19,50 €"
+    ]
+   ],
+   "ueberblick": "Alle Juist-Gutscheine im Überblick:",
+   "kaufen": "3",
+   "gutscheine": [
+    {
+     "name": "Olivino Feinkostbistro",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Heißgetränk & Pastel de Nata",
+     "zeit": "(10.30 - 13.30 Uhr)",
+     "ersparnis": "Ersparnis: Bis zu 7,50 Euro"
+    },
+    {
+     "name": "Juister Hof",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Fischbrötchen Ihrer Wahl",
+     "zeit": "(13.00 - 17.00 Uhr)",
+     "ersparnis": "Ersparnis: Bis zu 7,90 Euro"
+    },
+    {
+     "name": "Café Wilhelmshöhe",
+     "zusatz": "",
+     "link": "",
+     "angebot": "Bottle for Two- Flasche Wein & 2 Baguettes",
+     "zeit": "für 24,90 Euro",
+     "ersparnis": "Ersparnis: Exakt 20,00 Euro"
+    },
+    {
+     "name": "Matjes & Co",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Hausgemachter Backfisch-Teller",
+     "zeit": "(12.00 - 14. 30 Uhr)",
+     "ersparnis": "Ersparnis: Exakt 19,90 Euro"
+    },
+    {
+     "name": "Eis & Co",
+     "zusatz": "",
+     "link": "",
+     "angebot": "4 für 2 - Eiskugeln",
+     "zeit": "(2 x 2 Kugeln / Waffel; 12.00 - 14.30 Uhr)",
+     "ersparnis": "Ersparnis: Exakt 5,80 Euro"
+    },
+    {
+     "name": "Hotel Atlantic / Güst",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Hausgem. Kuchen / Café Creme",
+     "zeit": "(13.00 - 17.00 Uhr)",
+     "ersparnis": "Ersparnis: Bis zu 8,40 Euro"
+    },
+    {
+     "name": "Juister Hof",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Heißgetränk & Küchen oder Waffel",
+     "zeit": "(14.00 - 17.00 Uhr)",
+     "ersparnis": "Ersparnis: Bis zu 12,00 Euro"
+    },
+    {
+     "name": "Flugplatz-Restaurant Juist",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Pfannenschnitzel « JUBI »",
+     "zeit": "(16.00 - 18.00 Uhr)",
+     "ersparnis": "Ersparnis: Exakt 19,50 Euro"
+    },
+    {
+     "name": "Inselradgeber Juist",
+     "zusatz": "",
+     "link": "",
+     "angebot": "10% Rabatt auf die Fahrradmiete",
+     "zeit": "(z.B. bei100,- Euro-Buchung)",
+     "ersparnis": "Ersparnis: Exakt 10,- Euro"
+    },
+    {
+     "name": "Tourist-Information Juist",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Gästeführung am Donnerstag",
+     "zeit": "(15.00 Uhr)",
+     "ersparnis": "Ersparnis: Exakt 12,00 Euro"
+    },
+    {
+     "name": "Dat lütte Lädchen",
+     "zusatz": "",
+     "link": "",
+     "angebot": "15% Rabatt auf Ihren Einkauf",
+     "zeit": "(z.B. bei 50,- Euro-Einkauf)",
+     "ersparnis": "Ersparnis: Exakt 7,50 Euro"
+    },
+    {
+     "name": "Frischemarkt Rüdiger Mann",
+     "zusatz": "",
+     "link": "",
+     "angebot": "10% Rabatt auf Ihren Einkauf",
+     "zeit": "(z.B. bei 100,- Euro-Einkauf)",
+     "ersparnis": "Ersparnis: Exakt 10,00 Euro"
+    },
+    {
+     "name": "Biomaris Shop",
+     "zusatz": "",
+     "link": "",
+     "angebot": "20% Rabatt auf Ihren Einkauf",
+     "zeit": "(z.B. bei 100,- Euro-Einkauf)",
+     "ersparnis": "Ersparnis: Exakt 20,00 Euro"
+    },
+    {
+     "name": "Kurverwaltung Juist",
+     "zusatz": "",
+     "link": "",
+     "angebot": "50% Rabatt auf ein Duschtuch",
+     "zeit": "",
+     "ersparnis": "Ersparnis: Exakt 14,45 Euro"
+    },
+    {
+     "name": "Michael Kersting Fotografie",
+     "zusatz": "",
+     "link": "",
+     "angebot": "Fotoshooting am Strand für 69,- Euro",
+     "zeit": "(20 Minuten)",
+     "ersparnis": "Ersparnis: Exakt 70,00 Euro"
+    },
+    {
+     "name": "Tower Vital Schwimmbad",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Tageskarte für das Schwimmbad",
+     "zeit": "",
+     "ersparnis": "Ersparnis: Bis zu 12,00 Euro"
+    },
+    {
+     "name": "Tower Vital Fitness",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Tageskarte für das Fitness-Studio",
+     "zeit": "",
+     "ersparnis": "Ersparnis: Bis zu 17,00 Euro"
+    },
+    {
+     "name": "Tower Vital Wellness",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Meerwasser-Inhalation",
+     "zeit": "",
+     "ersparnis": "Ersparnis: Exakt 12,50 Euro"
+    },
+    {
+     "name": "Tower Vital Wellness",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - 90 Minuten-Karte für die Sauna",
+     "zeit": "",
+     "ersparnis": "Ersparnis: Exakt 12,00 Euro"
+    }
+   ]
+  },
+  "wangerooge": {
+   "kopf": [
+    [
+     "big",
+     "InselTicket\nWangerooge 2027"
+    ],
+    [
+     "medium",
+     "Laufzeit: 15. März – 31. Oktober 2027\nGesamtersparnis: Weit über 300,00 €"
+    ],
+    [
+     "big",
+     "Einmal kaufen, überall sparen! Einmaliger Kaufpreis: 19,50 €"
+    ]
+   ],
+   "ueberblick": "Alle Wangerooge-Gutscheine im Überblick:",
+   "kaufen": "15",
+   "gutscheine": [
+    {
+     "name": "Restaurant -Café Hanken",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Langschläfer-Frühstücksbuffet",
+     "zeit": "(10.00 - 12.00 Uhr)",
+     "ersparnis": "Ersparnis: Exakt 24,50 Euro"
+    },
+    {
+     "name": "Snabbelkraam Café- Shop",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Croissant Heißgetränk",
+     "zeit": "(10.00 - 12.00 Uhr)",
+     "ersparnis": "Ersparnis: Bis zu 7,90 Euro"
+    },
+    {
+     "name": "Restaurant - Café Hanken",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Late Night-Pizza Ihrer Wahl",
+     "zeit": "(von 19.30-21.00 Uhr)",
+     "ersparnis": "Ersparnis: Bis zu 18,00 Euro"
+    },
+    {
+     "name": "Snabbelkraam Café- Shop",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Stulle Ihrer Wahl",
+     "zeit": "(13.00 - 16.00 Uhr)",
+     "ersparnis": "Ersparnis: Circa 10,00 Euro"
+    },
+    {
+     "name": "Erlebnisbad Oase",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Schwimmbad-Eintritt für 4 Stunden",
+     "zeit": "",
+     "ersparnis": "Ersparnis: Exakt 9,00 Euro"
+    },
+    {
+     "name": "Gesundheitszentrum",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - 4 Stunden Sauna in der Thasos-Oase",
+     "zeit": "",
+     "ersparnis": "Ersparnis: Exakt 15,00 Euro"
+    },
+    {
+     "name": "Fahrradverleih FeWo e.k.",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Fahrradverleih für einen Tag",
+     "zeit": "",
+     "ersparnis": "Ersparnis: Bis zu 8,00 Euro"
+    },
+    {
+     "name": "FLN Personenbeförderung",
+     "zusatz": "",
+     "link": "",
+     "angebot": "6,- Euro-Gutschein auf eine Fahrt Ihrer Wahl",
+     "zeit": "",
+     "ersparnis": "Ersparnis: Exakt 6,00 Euro"
+    },
+    {
+     "name": "Wangerooge Teehuus",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - 100 Gramm Tee Ihrer Wahl",
+     "zeit": "",
+     "ersparnis": "Ersparnis: Bis zu 10,00 Euro"
+    },
+    {
+     "name": "Inselmarkt Wangerooge",
+     "zusatz": "",
+     "link": "",
+     "angebot": "10% Rabatt auf Lebensmittel & Getränke",
+     "zeit": "(bei 100,- Einkauf)",
+     "ersparnis": "Ersparnis: Exakt 10,00 Euro"
+    },
+    {
+     "name": "Biomaris-Shop",
+     "zusatz": "",
+     "link": "",
+     "angebot": "20% Rabatt auf Ihren Einkauf",
+     "zeit": "(bei 50,- Euro)",
+     "ersparnis": "Ersparnis: Exakt 10,00 Euro"
+    },
+    {
+     "name": "Verkehrsverein Wangerooge",
+     "zusatz": "",
+     "link": "",
+     "angebot": "20% Rabatt auf Ihren Einkauf",
+     "zeit": "(bei 50,- Euro)",
+     "ersparnis": "Ersparnis: Exakt 10,00 Euro"
+    },
+    {
+     "name": "Inselfotografie Brede",
+     "zusatz": "",
+     "link": "",
+     "angebot": "50% Rabatt auf ein Fotoshootings",
+     "zeit": "",
+     "ersparnis": "Ersparnis: Exakt 44,50 Euro"
+    },
+    {
+     "name": "Inselhof Wangerooge",
+     "zusatz": "",
+     "link": "",
+     "angebot": "30,- Euro-Gutschein auf einen Ausritt mit Snack",
+     "zeit": "",
+     "ersparnis": "Ersparnis: Exakt 30,00 Euro"
+    },
+    {
+     "name": "Inselhof Wangerooge",
+     "zusatz": "",
+     "link": "",
+     "angebot": "50% Rabatt auf geführtes Ponyreiten",
+     "zeit": "(1 Person)",
+     "ersparnis": "Ersparnis: Exakt 17,50 Euro"
+    },
+    {
+     "name": "Inselhof Wangerooge",
+     "zusatz": "",
+     "link": "",
+     "angebot": "20,- Euro-Gutschein auf unseren Strandausritt",
+     "zeit": "",
+     "ersparnis": "Ersparnis: Exakt 20,00 Euro"
+    },
+    {
+     "name": "Inselhof Wangerooge",
+     "zusatz": "",
+     "link": "",
+     "angebot": "50% Rabatt auf die Kutschen-Miete",
+     "zeit": "(bis zu 6 Personen)",
+     "ersparnis": "Ersparnis: Exakt 149,50 Euro"
+    }
+   ]
+  },
+  "helgoland": {
+   "kopf": [
+    [
+     "big",
+     "InselTicket\nHelgoland 2027"
+    ],
+    [
+     "medium",
+     "Laufzeit: 1. April – 31. Oktober 2027\nGesamtersparnis: Weit über 150,00 €"
+    ],
+    [
+     "big",
+     "Einmal kaufen, überall sparen! Einmaliger Kaufpreis: 17,50 €"
+    ]
+   ],
+   "ueberblick": "Alle Helgoland-Gutscheine im Überblick:",
+   "kaufen": "9",
+   "gutscheine": [
+    {
+     "name": "Basti´s Bistro",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Early Bird-Frühstück",
+     "zeit": "(8.30 - 9.30 Uhr)",
+     "ersparnis": "Ersparnis: Exakt 13,90 Euro"
+    },
+    {
+     "name": "Kochlöffel",
+     "zusatz": "",
+     "link": "",
+     "angebot": "Dopp. Currywurst, Pommes, Getränk",
+     "zeit": "für 9,90 Euro",
+     "ersparnis": "Ersparnis: Exakt 5,00 Euro"
+    },
+    {
+     "name": "Helgoländer Fährhaus",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Tagesgerichte",
+     "zeit": "(12.30 - 14.30 Uhr)",
+     "ersparnis": "Ersparnis: Bis zu 25,00 Euro"
+    },
+    {
+     "name": "Windjammer",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Eiergrog zum Mitnehmen",
+     "zeit": "(13.30 - 17.00 Uhr)",
+     "ersparnis": "Ersparnis: Exakt 5,50 Euro"
+    },
+    {
+     "name": "Gelateria Curniciello",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Heißgetränk Ihrer Wahl to go",
+     "zeit": "(11.00-21.00 Uhr)",
+     "ersparnis": "Ersparnis: Bis zu 5,60 Euro"
+    },
+    {
+     "name": "Kochlöffel",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 Chicken Burger, Pommes, Getränk",
+     "zeit": "für 7,80 Euro",
+     "ersparnis": "Ersparnis: Exakt 5,00 Euro"
+    },
+    {
+     "name": "Basti´s Bistro",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Kaffee & Kuchen (16.00-17.00 Uhr)",
+     "zeit": "",
+     "ersparnis": "Ersparnis: Exakt 6,90 Euro"
+    },
+    {
+     "name": "Haus Hohenfeld",
+     "zusatz": "",
+     "link": "",
+     "angebot": "20% Rabatt auf Parfüm & Porzellan.",
+     "zeit": "Z.B. bei 100,- Euro",
+     "ersparnis": "Ersparnis: Exakt 20,00 Euro"
+    },
+    {
+     "name": "Haus Hohenfeld",
+     "zusatz": "",
+     "link": "",
+     "angebot": "10% Rabatt auf Optik. Z.B. bei 100,- Euro",
+     "zeit": "",
+     "ersparnis": "Ersparnis: Exakt 10,00 Euro"
+    },
+    {
+     "name": "PhotoLilo Tadday",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Magneten mit Helgoland-Motiven",
+     "zeit": "",
+     "ersparnis": "Ersparnis: Exakt 5,00 Euro"
+    },
+    {
+     "name": "Fundgrube Windjammer",
+     "zusatz": "",
+     "link": "",
+     "angebot": "20% Rabatt auf Ihren Einkauf. Z.B. bei 100,- Euro",
+     "zeit": "",
+     "ersparnis": "Ersparnis: Exakt 20,00 Euro"
+    },
+    {
+     "name": "Helgoländer Börtebahn",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Rundfahrt mit der Börtebahn",
+     "zeit": "(vormittags)",
+     "ersparnis": "Ersparnis: Bis zu 10,00 Euro"
+    },
+    {
+     "name": "Verein Jordsand",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Dünenführung inklusive Dünenfähre",
+     "zeit": "",
+     "ersparnis": "Ersparnis: Bis zu 14,00 Euro"
+    },
+    {
+     "name": "EMT Katamaran",
+     "zusatz": "",
+     "link": "",
+     "angebot": "50% Rabatt auf eine Rundfahrt-Fahrkarte",
+     "zeit": "",
+     "ersparnis": "Ersparnis: Exakt 12,50 Euro"
+    },
+    {
+     "name": "EMT Börteboot",
+     "zusatz": "",
+     "link": "",
+     "angebot": "50% Rabatt auf eine Rundfahrt-Fahrkarte",
+     "zeit": "",
+     "ersparnis": "Ersparnis: Exakt 12,50 Euro"
+    },
+    {
+     "name": "Red Rock Tretroller",
+     "zusatz": "",
+     "link": "",
+     "angebot": "2 für 1 - Tretroller für einen Tag",
+     "zeit": "",
+     "ersparnis": "Ersparnis: Exakt 10,00 Euro"
+    }
+   ]
+  }
+ }
+}
