@@ -39,9 +39,29 @@
   // ---------- Browser ----------
 
   var produkte = global.INSELTICKET_PRODUKTE || {};
-  var speicherErsatz = null;   // falls der Browser keinen Speicher erlaubt
+  var speicherErsatz = null;   // Warenkorb im Arbeitsspeicher dieser Seite
+
+  // Lokal geöffnete Dateien (file://) bekommen in Firefox je Datei einen eigenen Speicher.
+  // Dort reist der Warenkorb deshalb beim Seitenwechsel in der Adresse mit (#korb=borkum:2,juist:1).
+  var LOKAL = global.location.protocol === 'file:';
+
+  function ausAdresse() {
+    var m = /[#&]korb=([^&]*)/.exec(global.location.hash);
+    if (!m) return null;
+    var korb = {};
+    decodeURIComponent(m[1]).split(',').forEach(function (teil) {
+      var p = teil.split(':');
+      if (p[0]) korb[p[0]] = parseInt(p[1], 10) || 0;
+    });
+    return bereinigen(korb);
+  }
+
+  function alsAdresse(korb) {
+    return Object.keys(korb).map(function (k) { return k + ':' + korb[k]; }).join(',');
+  }
 
   function laden() {
+    if (LOKAL) return speicherErsatz ? bereinigen(speicherErsatz) : {};
     try {
       var roh = global.localStorage.getItem(SCHLUESSEL);
       if (roh) return bereinigen(JSON.parse(roh));
@@ -51,8 +71,24 @@
 
   function speichern(korb) {
     speicherErsatz = korb;
-    try { global.localStorage.setItem(SCHLUESSEL, JSON.stringify(korb)); } catch (e) { /* Sitzung reicht */ }
+    if (!LOKAL) {
+      try { global.localStorage.setItem(SCHLUESSEL, JSON.stringify(korb)); } catch (e) { /* Sitzung reicht */ }
+    }
     zaehlerZeigen();
+  }
+
+  // Lokal: interne Links tragen den aktuellen Warenkorb mit
+  function linksMitnehmen() {
+    if (!LOKAL) return;
+    document.addEventListener('click', function (ev) {
+      var a = ev.target.closest && ev.target.closest('a[href]');
+      if (!a) return;
+      var ziel = a.getAttribute('href');
+      if (!/^[\w-]+\.html([?#].*)?$/.test(ziel)) return;   // nur Seiten dieses Ordners
+      var korb = laden();
+      var basis = ziel.split('#')[0];
+      a.setAttribute('href', Object.keys(korb).length ? basis + '#korb=' + alsAdresse(korb) : basis);
+    }, true);
   }
 
   function bereinigen(korb) {
@@ -219,6 +255,11 @@
   // ---------- Start ----------
 
   function start() {
+    if (LOKAL) {
+      var mit = ausAdresse();
+      if (mit) speicherErsatz = mit;
+      linksMitnehmen();
+    }
     // Vorschau-Befüllung: warenkorb.html?beispiel
     if (/[?&]beispiel\b/.test(global.location.search)) {
       speichern({ borkum: 2, juist: 1, helgoland: 1 });
