@@ -45,6 +45,7 @@ body {
 }
 
 img { display: block; max-width: 100%; height: auto; }
+[hidden] { display: none !important; }
 a { color: inherit; text-decoration: none; }
 
 .sr {
@@ -506,6 +507,215 @@ a { color: inherit; text-decoration: none; }
   line-height: 1.3;
 }
 
+/* ---------- Shop: Zähler, Meldung ---------- */
+
+.hauptnav__korb { position: relative; }
+.korb-zaehler {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 10px;
+  background: var(--orange);
+  color: var(--weiss);
+  font-size: 13px;
+  line-height: 1;
+}
+.korb-zaehler[hidden] { display: none; }
+
+button.knopf { border: 0; cursor: pointer; font-family: inherit; font-weight: 700; }
+.knopf--gross { width: 100%; padding: 13px 22px; font-size: 20px; }
+
+.meldung {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  max-width: calc(100% - 32px);
+  padding: 14px 20px;
+  background: var(--blau);
+  color: var(--weiss);
+  font-size: 17px;
+  box-shadow: 0 6px 18px rgba(7, 21, 42, .4);
+  border-left: 4px solid var(--orange);
+  opacity: 0;
+  transform: translate(-50%, 12px);
+  transition: opacity .3s ease, transform .3s ease;
+}
+.meldung--sichtbar { opacity: 1; transform: translate(-50%, 0); }
+.meldung a { color: var(--orange); white-space: nowrap; }
+.meldung a:hover { text-decoration: underline; }
+
+/* ---------- Shop: Warenkorb ---------- */
+
+.shop {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 10px 16px 70px;
+}
+
+.shop__hinweis {
+  max-width: 828px;
+  margin: 0 auto 24px;
+  padding: 8px 14px;
+  border: 1px dashed rgba(16, 45, 86, .45);
+  font-weight: 400;
+  font-size: 15px;
+  text-align: center;
+}
+
+.shop__sammel {
+  margin: 34px 0 0;
+  font-size: 18px;
+  text-align: center;
+}
+
+.korb {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 22px;
+  align-items: start;
+}
+
+.korb__liste {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.korbzeile {
+  display: grid;
+  grid-template-columns: 130px 1fr auto auto auto;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 14px;
+  background: var(--flaeche);
+  box-shadow: 2px 3px 6px rgba(7, 21, 42, .15);
+}
+
+.korbzeile__bild img { width: 130px; height: auto; }
+.korbzeile__text { display: flex; flex-direction: column; line-height: 1.3; }
+.korbzeile__name { font-size: 20px; }
+.korbzeile__name:hover { color: var(--orange); }
+.korbzeile__laufzeit, .korbzeile__einzel { font-weight: 400; font-size: 15px; }
+.korbzeile__summe { min-width: 80px; font-size: 18px; text-align: right; }
+.korbzeile__menge-lesen { font-size: 17px; }
+
+.korbzeile__weg {
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--blau);
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+}
+.korbzeile__weg:hover { background: var(--blau); color: var(--weiss); }
+
+.menge { display: inline-flex; align-items: center; border: 2px solid var(--blau); background: var(--weiss); }
+.menge__knopf {
+  width: 32px;
+  height: 34px;
+  border: 0;
+  background: transparent;
+  color: var(--blau);
+  font: 700 20px/1 "Roboto Condensed", sans-serif;
+  cursor: pointer;
+}
+.menge__knopf:hover { background: var(--orange); color: var(--weiss); }
+.menge__zahl {
+  width: 42px;
+  height: 34px;
+  border: 0;
+  border-left: 1px solid rgba(16, 45, 86, .25);
+  border-right: 1px solid rgba(16, 45, 86, .25);
+  color: var(--blau);
+  font: 700 18px/1 "Roboto Condensed", sans-serif;
+  text-align: center;
+  -moz-appearance: textfield;
+}
+.menge__zahl::-webkit-outer-spin-button,
+.menge__zahl::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+
+.summe {
+  position: sticky;
+  top: 20px;
+  padding: 20px 22px 22px;
+  background: linear-gradient(to bottom, var(--blau) 0%, var(--kopf-unten) 100%);
+  color: var(--weiss);
+  box-shadow: var(--schatten-box);
+}
+.summe__titel { margin: 0 0 12px; font-size: 24px; line-height: 1.2; }
+.summe__zeilen { margin: 0 0 12px; }
+.summe__zeilen div { display: flex; justify-content: space-between; gap: 12px; padding: 5px 0; font-size: 17px; }
+.summe__zeilen div[hidden] { display: none; }
+.summe__zeilen dt, .summe__zeilen dd { margin: 0; }
+.summe__zeilen [data-summe-rabatt] { color: var(--orange); }
+.summe__gesamt { margin-top: 6px; padding-top: 10px !important; border-top: 1px solid rgba(255, 255, 255, .3); font-size: 22px !important; }
+.summe__stufe { margin: 0 0 10px; color: var(--orange); font-size: 15px; }
+.summe__rechnung { margin: 0 0 16px; font-weight: 400; font-size: 15px; line-height: 1.4; }
+.summe .knopf { width: 100%; text-align: center; }
+
+/* ---------- Shop: Kasse ---------- */
+
+.kasse { padding: 20px 22px 22px; background: var(--flaeche); box-shadow: 2px 3px 6px rgba(7, 21, 42, .15); }
+.kasse__titel { margin: 0 0 14px; font-size: 22px; line-height: 1.2; }
+.kasse__titel:not(:first-child) { margin-top: 26px; }
+
+.kasse__felder { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 14px; }
+.feld { display: flex; flex-direction: column; gap: 4px; font-size: 15px; }
+.feld--breit { grid-column: 1 / -1; }
+.feld input, .feld textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 2px solid rgba(16, 45, 86, .25);
+  border-radius: 2px;
+  background: var(--weiss);
+  color: var(--blau);
+  font: 400 17px/1.3 "Roboto Condensed", sans-serif;
+}
+.feld input:focus, .feld textarea:focus { outline: none; border-color: var(--blau); }
+.kasse--geprueft .feld input:invalid { border-color: var(--orange); background: #fff6ec; }
+
+.kasse__zahlart { display: flex; align-items: center; gap: 10px; margin: 0; font-size: 18px; }
+.kasse__punkt { width: 18px; height: 18px; border: 5px solid var(--blau); border-radius: 50%; background: var(--weiss); }
+
+.kasse__agb { display: flex; align-items: flex-start; gap: 10px; margin-top: 24px; font-weight: 400; font-size: 16px; cursor: pointer; }
+.kasse__agb input { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--orange); }
+.kasse__agb a { color: var(--orange); }
+.kasse__agb a:hover { text-decoration: underline; }
+.kasse--geprueft .kasse__agb input:invalid + span { color: #c25e00; }
+.kasse__fehler { margin: 14px 0 0; color: #c25e00; font-size: 16px; }
+.kasse__pflicht { margin: 14px 0 0; font-weight: 400; font-size: 14px; }
+
+.kasse__seite { display: grid; gap: 14px; position: sticky; top: 20px; }
+.kasse__seite .summe { position: static; }
+.korb__liste--kurz .korbzeile { grid-template-columns: 70px 1fr auto auto; gap: 10px; padding: 8px 10px; }
+.korb__liste--kurz .korbzeile__bild img { width: 70px; }
+.korb__liste--kurz .korbzeile__name { font-size: 16px; }
+.korb__liste--kurz .korbzeile__laufzeit { display: none; }
+.korb__liste--kurz .korbzeile__einzel { font-size: 13px; }
+.korb__liste--kurz .korbzeile__summe { min-width: 0; font-size: 15px; }
+.korb__liste--kurz .korbzeile__menge-lesen { font-size: 15px; }
+[data-shop="kasse"] .korb { grid-template-columns: 1fr 320px; }
+
+[data-shop="kasse"] .korb { grid-template-columns: 1fr 340px; }
+.danke { max-width: 620px; margin: 0 auto; padding: 26px 28px; background: var(--flaeche); box-shadow: 2px 3px 6px rgba(7, 21, 42, .15); text-align: center; font-size: 18px; }
+.danke__titel { margin: 0 0 10px; font-size: clamp(26px, 3vw, 32px); line-height: 1.2; }
+.danke__liste { list-style: none; margin: 18px 0 8px; padding: 0; }
+.danke__gesamt { font-size: 22px; }
+.danke__adresse { font-weight: 400; }
+.danke p { margin: 0 0 10px; }
+
 /* ---------- Tablet ---------- */
 
 @media (max-width: 900px) {
@@ -552,6 +762,21 @@ a { color: inherit; text-decoration: none; }
 
   .gutscheine__liste { grid-template-columns: 1fr; }
   .info-liste { grid-template-columns: 1fr; }
+
+  .korb, [data-shop="kasse"] .korb { grid-template-columns: 1fr; }
+  .summe, .kasse__seite { position: static; }
+  .korbzeile { grid-template-columns: 96px 1fr auto; gap: 10px 12px; }
+  .korbzeile__bild { grid-row: span 2; }
+  .korbzeile__bild img { width: 96px; }
+  .korbzeile__name { font-size: 18px; }
+  .korbzeile .menge { grid-column: 2; justify-self: start; }
+  .korbzeile__summe { grid-column: 3; grid-row: 2; }
+  .korbzeile__weg { grid-column: 3; grid-row: 1; justify-self: end; align-self: start; }
+  .korb__liste--kurz .korbzeile { grid-template-columns: 70px 1fr auto auto; }
+  .korb__liste--kurz .korbzeile__bild { grid-row: auto; }
+  .korb__liste--kurz .korbzeile__summe { grid-column: auto; grid-row: auto; }
+  .kasse__felder { grid-template-columns: 1fr; }
+  .meldung { flex-direction: column; align-items: flex-start; gap: 6px; }
   .info--betont { font-size: 19px; }
   .textseite { font-size: 18px; }
   .textseite--recht { font-size: 16px; }

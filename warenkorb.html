@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
   <title>Warenkorb · InselTicket</title>
   <meta name="description" content="Exklusiv-Gutscheine für Ihren Urlaub auf Borkum, Norderney, Juist, Wangerooge und Helgoland.">
   <link rel="preload" href="assets/fonts/roboto-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
@@ -38,6 +39,7 @@
         <a class="hauptnav__korb" href="warenkorb.html" aria-current="page">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1 3h3.2l2.6 12.2a1 1 0 0 0 1 .8h10.4a1 1 0 0 0 1-.76L21.6 7H6.1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="20" r="1.6" fill="currentColor"/><circle cx="17" cy="20" r="1.6" fill="currentColor"/></svg>
           Warenkorb
+          <span class="korb-zaehler" data-korb-zaehler hidden></span>
         </a>
       </nav>
     </div>
@@ -50,13 +52,35 @@
     <h1 class="seitenkopf__titel">Warenkorb</h1>
   </section>
 
-  <article class="textseite textseite--mittig">
-    <p class="textseite__abschluss">Der Warenkorb ist leer.</p>
-    <p>Bitte wählen Sie unter <a href="inseln.html">"Die Insel &amp; Ihre Anbieter"</a> Ihre gewünschten Tickets aus.</p>
-    <p><a class="knopf" href="inseln.html">Zu den InselTickets</a></p>
-  </article>
+  <section class="shop" data-shop="warenkorb">
+    <p class="shop__hinweis">Vorschau-Shop: In dieser Fassung wird keine Bestellung verschickt.</p>
+    <div class="textseite textseite--mittig" data-korb-leer>
+      <p class="textseite__abschluss">Der Warenkorb ist leer.</p>
+      <p>Bitte wählen Sie unter <a href="inseln.html">"Die Insel &amp; Ihre Anbieter"</a> Ihre gewünschten Tickets aus.</p>
+      <p><a class="knopf" href="inseln.html">Zu den InselTickets</a></p>
+    </div>
+    <div class="korb" data-korb-voll hidden>
+      <ul class="korb__liste" data-korb-liste></ul>
+      <aside class="summe" aria-label="Summe">
+        <h2 class="summe__titel">Ihre Bestellung</h2>
+        <dl class="summe__zeilen">
+          <div><dt>Zwischensumme</dt><dd data-summe-zwischen></dd></div>
+          <div data-summe-rabatt-zeile hidden><dt data-summe-rabatt-text>Sammelrabatt</dt><dd data-summe-rabatt></dd></div>
+          <div class="summe__gesamt"><dt>Gesamt</dt><dd data-summe-gesamt></dd></div>
+        </dl>
+        <p class="summe__stufe" data-rabatt-hinweis></p>
+        <p class="summe__rechnung">Keine Vorkasse, der Versand erfolgt mit beiliegender Rechnung.</p>
+        <a class="knopf" href="kasse.html">Zur Kasse</a>
+      </aside>
+    </div>
+    <p class="shop__sammel">P.S.: Fahren Sie als Gruppe, Verein oder Club auf die Inseln? Dann lohnt sich für Sie eine Sammelbestellung, denn ab einem Einkaufswert von 50.- Euro gibt`s 10%, ab 100.- Euro satte 20% Rabatt!</p>
+  </section>
 </main>
 
+<div class="meldung" data-meldung role="status" aria-live="polite" hidden></div>
+
 <script src="assets/js/menue.js"></script>
+<script src="assets/js/produkte.js"></script>
+<script src="assets/js/warenkorb.js"></script>
 </body>
 </html>

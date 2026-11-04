@@ -38,6 +38,7 @@
         <a class="hauptnav__korb" href="warenkorb.html">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1 3h3.2l2.6 12.2a1 1 0 0 0 1 .8h10.4a1 1 0 0 0 1-.76L21.6 7H6.1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="20" r="1.6" fill="currentColor"/><circle cx="17" cy="20" r="1.6" fill="currentColor"/></svg>
           Warenkorb
+          <span class="korb-zaehler" data-korb-zaehler hidden></span>
         </a>
       </nav>
     </div>
@@ -111,6 +112,10 @@
   </section>
 </main>
 
+<div class="meldung" data-meldung role="status" aria-live="polite" hidden></div>
+
 <script src="assets/js/menue.js"></script>
+<script src="assets/js/produkte.js"></script>
+<script src="assets/js/warenkorb.js"></script>
 </body>
 </html>

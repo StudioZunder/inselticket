@@ -54,6 +54,7 @@ def kopf(aktiv):
         <a class="hauptnav__korb" href="warenkorb.html"{cur('basket')}>
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1 3h3.2l2.6 12.2a1 1 0 0 0 1 .8h10.4a1 1 0 0 0 1-.76L21.6 7H6.1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="20" r="1.6" fill="currentColor"/><circle cx="17" cy="20" r="1.6" fill="currentColor"/></svg>
           Warenkorb
+          <span class="korb-zaehler" data-korb-zaehler hidden></span>
         </a>
       </nav>
     </div>
@@ -61,13 +62,14 @@ def kopf(aktiv):
 </header>'''
 
 
-def seite(datei, titel, aktiv, inhalt, beschreibung=''):
+def seite(datei, titel, aktiv, inhalt, beschreibung='', noindex=False):
     beschreibung = beschreibung or 'Exklusiv-Gutscheine für Ihren Urlaub auf Borkum, Norderney, Juist, Wangerooge und Helgoland.'
+    robots = '\n  <meta name="robots" content="noindex">' if noindex else ''
     doc = f'''<!doctype html>
 <html lang="de">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">{robots}
   <title>{e(titel)}</title>
   <meta name="description" content="{e(beschreibung)}">
   <link rel="preload" href="assets/fonts/roboto-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
@@ -81,7 +83,11 @@ def seite(datei, titel, aktiv, inhalt, beschreibung=''):
 {inhalt}
 </main>
 
+<div class="meldung" data-meldung role="status" aria-live="polite" hidden></div>
+
 <script src="assets/js/menue.js"></script>
+<script src="assets/js/produkte.js"></script>
+<script src="assets/js/warenkorb.js"></script>
 </body>
 </html>
 '''
@@ -114,9 +120,41 @@ def ticketkasten(k, n, knopf_text, knopf_ziel, ebene='h2'):
           <{ebene} class="ticketkasten__titel">{e(titel[0])}<br>{e(titel[1])}</{ebene}>
           <p class="ticketkasten__fakten">{'<br>'.join(e(f) for f in fakten)}</p>
           <p class="ticketkasten__preis">{e(preis[0])}<br>{e(preis[1])}</p>
-          <a class="knopf" href="{knopf_ziel}">{knopf_text}</a>
+          {knopf(knopf_text, knopf_ziel)}
         </div>
       </div>'''
+
+
+def knopf(text, ziel):
+    """Ziel 'ticket:borkum' ergibt einen Warenkorb-Knopf, sonst einen Link."""
+    if ziel.startswith('ticket:'):
+        return f'<button class="knopf" type="button" data-ticket="{ziel[7:]}">{text}</button>'
+    return f'<a class="knopf" href="{ziel}">{text}</a>'
+
+
+def preis_cent(k):
+    """'Einmaliger Kaufpreis: 24,50 €' -> 2450"""
+    m = re.search(r'(\d+),(\d{2})\s*€', kopfdaten(k)[2][1])
+    return int(m.group(1)) * 100 + int(m.group(2))
+
+
+def produkte_js():
+    produkte = {}
+    for k, n in INSELN:
+        titel, fakten, _ = kopfdaten(k)
+        produkte[k] = {
+            'id': int(DATEN[k]['kaufen']),
+            'name': f'InselTicket {n}',
+            'titel': titel[1],
+            'preis': preis_cent(k),
+            'laufzeit': fakten[0],
+            'bild': f'assets/img/inselticket-{k}.jpg',
+            'seite': f'{k}.html',
+        }
+    js = ('// Automatisch erzeugt von werkzeug/seiten_bauen.py aus werkzeug/inseln.json\n'
+          'window.INSELTICKET_PRODUKTE = ' + json.dumps(produkte, ensure_ascii=False, indent=2) + ';\n')
+    (WEB / 'assets' / 'js' / 'produkte.js').write_text(js)
+    print('gebaut: assets/js/produkte.js')
 
 
 def ticketliste():
@@ -233,7 +271,7 @@ def inselseite(k, n):
     inhalt = f'''{seitenkopf(f"InselTicket {e(n)}", f"kopf-{k}.jpg")}
 
   <section class="inselkopf">
-{ticketkasten(k, n, "In den Warenkorb", f"warenkorb.html?ticket={d['kaufen']}", ebene='h2')}
+{ticketkasten(k, n, "In den Warenkorb", f"ticket:{k}", ebene='h2')}
   </section>
 
   <section class="gutscheine">
@@ -242,7 +280,7 @@ def inselseite(k, n):
 {chr(10).join(karten)}
     </ul>
     <p class="gutscheine__summe">{e(fakten[1])}</p>
-    <p class="gutscheine__summe-knopf"><a class="knopf" href="warenkorb.html?ticket={d['kaufen']}">In den Warenkorb</a></p>
+    <p class="gutscheine__summe-knopf">{knopf("In den Warenkorb", f"ticket:{k}")}</p>
   </section>
 
 {inselwahl(k)}'''
@@ -309,15 +347,90 @@ def so_funktionierts():
     seite('so-funktionierts.html', "So funktioniert's · InselTicket", 'function', inhalt)
 
 
+VORSCHAU = '<p class="shop__hinweis">Vorschau-Shop: In dieser Fassung wird keine Bestellung verschickt.</p>'
+
+LEER = '''    <div class="textseite textseite--mittig" data-korb-leer>
+      <p class="textseite__abschluss">Der Warenkorb ist leer.</p>
+      <p>Bitte wählen Sie unter <a href="inseln.html">"Die Insel &amp; Ihre Anbieter"</a> Ihre gewünschten Tickets aus.</p>
+      <p><a class="knopf" href="inseln.html">Zu den InselTickets</a></p>
+    </div>'''
+
+
+def summenkasten(knopf_html):
+    return f'''      <aside class="summe" aria-label="Summe">
+        <h2 class="summe__titel">Ihre Bestellung</h2>
+        <dl class="summe__zeilen">
+          <div><dt>Zwischensumme</dt><dd data-summe-zwischen></dd></div>
+          <div data-summe-rabatt-zeile hidden><dt data-summe-rabatt-text>Sammelrabatt</dt><dd data-summe-rabatt></dd></div>
+          <div class="summe__gesamt"><dt>Gesamt</dt><dd data-summe-gesamt></dd></div>
+        </dl>
+        <p class="summe__stufe" data-rabatt-hinweis></p>
+        <p class="summe__rechnung">Keine Vorkasse, der Versand erfolgt mit beiliegender Rechnung.</p>
+        {knopf_html}
+      </aside>'''
+
+
 def warenkorb():
     inhalt = f'''{seitenkopf("Warenkorb", "kopf-duenen.jpg", "center 60%")}
 
-  <article class="textseite textseite--mittig">
-    <p class="textseite__abschluss">Der Warenkorb ist leer.</p>
-    <p>Bitte wählen Sie unter <a href="inseln.html">"Die Insel &amp; Ihre Anbieter"</a> Ihre gewünschten Tickets aus.</p>
-    <p><a class="knopf" href="inseln.html">Zu den InselTickets</a></p>
-  </article>'''
-    seite('warenkorb.html', 'Warenkorb · InselTicket', 'basket', inhalt)
+  <section class="shop" data-shop="warenkorb">
+    {VORSCHAU}
+{LEER}
+    <div class="korb" data-korb-voll hidden>
+      <ul class="korb__liste" data-korb-liste></ul>
+{summenkasten('<a class="knopf" href="kasse.html">Zur Kasse</a>')}
+    </div>
+    <p class="shop__sammel">P.S.: Fahren Sie als Gruppe, Verein oder Club auf die Inseln? Dann lohnt sich für Sie eine Sammelbestellung, denn ab einem Einkaufswert von 50.- Euro gibt`s 10%, ab 100.- Euro satte 20% Rabatt!</p>
+  </section>'''
+    seite('warenkorb.html', 'Warenkorb · InselTicket', 'basket', inhalt, noindex=True)
+
+
+def kasse():
+    feld = lambda name, label, typ='text', pflicht=True, auto='', breit=False: (
+        f'<label class="feld{" feld--breit" if breit else ""}"><span>{label}{" *" if pflicht else ""}</span>'
+        f'<input name="{name}" type="{typ}"{" required" if pflicht else ""}{f" autocomplete={chr(34)}{auto}{chr(34)}" if auto else ""}></label>')
+    inhalt = f'''{seitenkopf("Kasse", "kopf-duenen.jpg", "center 60%")}
+
+  <section class="shop" data-shop="kasse">
+    {VORSCHAU}
+{LEER}
+    <div class="korb" data-korb-voll hidden>
+      <form class="kasse" data-kasse novalidate>
+        <h2 class="kasse__titel">Rechnungs- und Lieferadresse</h2>
+        <div class="kasse__felder">
+          {feld('vorname', 'Vorname', auto='given-name')}
+          {feld('nachname', 'Nachname', auto='family-name')}
+          {feld('firma', 'Firma, Verein oder Club', pflicht=False, auto='organization', breit=True)}
+          {feld('strasse', 'Straße und Hausnummer', auto='street-address', breit=True)}
+          {feld('plz', 'PLZ', auto='postal-code')}
+          {feld('ort', 'Ort', auto='address-level2')}
+          {feld('email', 'E-Mail', typ='email', auto='email')}
+          {feld('telefon', 'Telefon', typ='tel', pflicht=False, auto='tel')}
+          <label class="feld feld--breit"><span>Anmerkung</span><textarea name="anmerkung" rows="3"></textarea></label>
+        </div>
+
+        <h2 class="kasse__titel">Zahlart</h2>
+        <p class="kasse__zahlart"><span class="kasse__punkt" aria-hidden="true"></span>Kauf auf Rechnung</p>
+
+        <label class="kasse__agb"><input type="checkbox" name="agb" required> <span>Ich habe die <a href="agb.html" target="_blank">AGB und die Widerrufsbelehrung</a> gelesen. *</span></label>
+        <p class="kasse__fehler" data-kasse-fehler hidden>Bitte füllen Sie alle Pflichtfelder aus und bestätigen Sie die AGB.</p>
+        <p class="kasse__pflicht">* Pflichtfeld</p>
+      </form>
+      <div class="kasse__seite">
+        <ul class="korb__liste korb__liste--kurz" data-korb-liste data-nur-lesen></ul>
+{summenkasten('<button class="knopf knopf--gross" type="submit" form="kasse-formular" data-bestellen>Zahlungspflichtig bestellen</button>')}
+      </div>
+    </div>
+
+    <div class="danke" data-danke hidden>
+      <h2 class="danke__titel">Vielen Dank für Ihre Bestellung!</h2>
+      <p>Vorschau: In dieser Fassung wird keine Bestellung verschickt.</p>
+      <div class="danke__uebersicht" data-danke-uebersicht></div>
+      <p><a class="knopf" href="index.html">Zur Startseite</a></p>
+    </div>
+  </section>'''
+    inhalt = inhalt.replace('<form class="kasse" data-kasse novalidate>', '<form class="kasse" id="kasse-formular" data-kasse novalidate>')
+    seite('kasse.html', 'Kasse · InselTicket', 'basket', inhalt, noindex=True)
 
 
 def rechtsseite(datei, quelle, titel, aktiv):
@@ -341,5 +454,7 @@ if __name__ == '__main__':
     for k, n in INSELN:
         inselseite(k, n)
     warenkorb()
+    kasse()
+    produkte_js()
     rechtsseite('agb.html', 'agb.html', 'AGB / Widerruf', 'agb')
     rechtsseite('impressum.html', 'impressum.html', 'Impressum', 'impressum')
